@@ -1,24 +1,31 @@
-# malbor-NO
+# marlbor-NO
 
-1. Edit README.md in your repository to give a rough outline of your project.
+## Abstract
 
-    Description of data set(s).
+Description of data set(s).
 
-    Source (brief description + hyperlink)
-    Relevance/significance
+## Source Relevance
 
-    Explanation, in broad strokes if necessary, of how you aim to make this data come alive.
+Source (brief description + hyperlink)
+Relevance/significance
 
-    What will be shown, absent user interaction?
-    How will user interact with your visualization?
-    What questions will your visualization allow user to explore? What questions will it provoke?
+[GHO Youth Smoking Data](http://apps.who.int/gho/data/node.main.TOB1257?lang=en)
 
-    Explanation of D3 feature utilization:
+## User Interaction 
 
-    enter/exit selections?
-    Transitions?
-    similarity to gallery (github.com/d3/d3/wiki/Gallery) examples? Which and how?
+Explanation, in broad strokes if necessary, of how you aim to make this data come alive.
 
-    Sketch/mock-up/screenshot of your envisioned visualization.
+What will be shown, absent user interaction?
+How will user interact with your visualization?
+What questions will your visualization allow user to explore? What questions will it provoke?
 
-2. Edit devlog.txt appropriately.
+## D3 Features
+
+Explanation of D3 feature utilization:
+
+enter/exit selections?
+Transitions?
+similarity to gallery (github.com/d3/d3/wiki/Gallery) examples? Which and how?
+
+## Visualization
+Sketch/mock-up/screenshot of your envisioned visualization.
