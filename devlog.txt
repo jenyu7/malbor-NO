@@ -13,4 +13,7 @@ yuJ -- 2018-03-28 10:39
 Linked submod
 Placed design doc specifications in README
 
+naotakaK -- 2018-03-28 22:03
+-----------------------
+Added abstract to README
 =======================================================
