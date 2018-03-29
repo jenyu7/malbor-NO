@@ -1,8 +1,9 @@
 # marlbor-NO
 
 ## Abstract
+Teen smoking and tobacco use is a major problem within the United States, and across the world. According to the Centers for Disease Control, "If smoking continues at the current rate among youth in this country, 5.6 million of today’s Americans younger than 18 will die early from a smoking-related illness."
 
-Description of data set(s).
+Our project looks at teenage smoking data from a large amount of studies from many different countries, compiled by the World Health Organization. The data provides insight to current cigaratte smoking and current tobacco use, for both males and females, mostly between the ages of 13-15.
 
 ## Source Relevance
 
