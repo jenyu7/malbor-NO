@@ -7,10 +7,11 @@ Our project looks at teenage smoking data from a large amount of studies from ma
 
 ## Source Relevance
 
-Source (brief description + hyperlink)
-Relevance/significance
+Data on worldwide smoking rates for youth. Two types of rates are given, one for tobacco use and one for smoking. This data is also given for each gender.
 
 [GHO Youth Smoking Data](http://apps.who.int/gho/data/node.main.TOB1257?lang=en)
+
+This will show off and compare rates of smoking in each country, so people can know which countries have youth at the highest risk of smoking. It will also offer a good visual guide to where people smoke most.
 
 ## User Interaction 
 
