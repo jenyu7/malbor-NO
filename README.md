@@ -1,5 +1,8 @@
 # marlbor-NO
+### Team
+Project Manager: Jennifer Yu
 
+Members: Naotaka Kinoshita, Shaina Peters
 ## Abstract
 Teen smoking and tobacco use is a major problem within the United States, and across the world. According to the Centers for Disease Control, "If smoking continues at the current rate among youth in this country, 5.6 million of today’s Americans younger than 18 will die early from a smoking-related illness."
 
