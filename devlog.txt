@@ -14,14 +14,15 @@ Linked submod
 Placed design doc specifications in README
 ----------------------
 naotakaK -- 2018-03-28 22:03
------------------------
 Added abstract to README
 ----------------------
 petersS -- 2018-03-28 21:03
------------------------
 Added Source Relevance to README
 ----------------------
 yuJ -- 2018-03-28 23:58
------------------------
 Added User Interaction, D3 Elements, and Visualization sections to README
+-----------------------
+naotakaK -- 2018-03-29 8:48
+Updated README to include team roster
+-----------------------
 =======================================================
