@@ -25,4 +25,7 @@ Added User Interaction, D3 Elements, and Visualization sections to README
 naotakaK -- 2018-03-29 8:48
 Updated README to include team roster
 -----------------------
+naotakaK -- 2018-04-10 12:54
+Added smoking data csv
+-----------------------
 =======================================================
