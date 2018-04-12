@@ -7,7 +7,7 @@ var projection = d3.geo.orthographic()
 	.clipAngle(90);
 
 var path = d3.geo.path()
-	.projection(projection);
+    .projection(projection);
 
 var λ = d3.scale.linear()
 	.domain([0, width])
@@ -21,17 +21,30 @@ var svg = d3.select("body").append("svg")
 	.attr("width", width)
 	.attr("height", height);
 
+/***
 svg.on("mousemove", function() {
     var p = d3.mouse(this);
     projection.rotate([λ(p[0]), φ(p[1])]);
     svg.selectAll("path").attr("d", path);
 });
-
+***/
 d3.json("/test.json", function(error, world) {
     if (error) throw error;
+    svg.append("g")
+	.attr("class", "countries")
+	.selectAll("path")
+	.data(topojson.feature(world, world.objects.countries).features)
+	.enter().append("path")
+	.attr("d", path);
 
+    svg.append("path")
+	.attr("class", "boundary")
+	.attr("d", path(topojson.mesh(world, world.objects.countries,
+				      function (a, b) {
+					  return a !== b; })));
+    /***
     svg.insert("path", ".graticule")
-	.datum(topojson.feature(world, world.objects.land))
+	.datum(topojson.feature(world, world.objects.countries))
 	.attr("class", "land")
 	.attr("d", path);
 
@@ -39,6 +52,7 @@ d3.json("/test.json", function(error, world) {
 	.datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
 	.attr("class", "boundary")
 	.attr("d", path); 
+    ***/
 });
 
 /***
