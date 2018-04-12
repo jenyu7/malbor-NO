@@ -28,4 +28,7 @@ Updated README to include team roster
 naotakaK -- 2018-04-10 12:54
 Added smoking data csv
 -----------------------
+naotakaK -- 2018-04-12 10:00
+Added base code to build off of, moved js to js file and style to css file
+-----------------------
 =======================================================
