@@ -201,8 +201,8 @@ d3.csv("population.csv", function(err, data) {
 
       var φ = d3.scale.linear().domain([0, height]).range([90, -90]);
 
-      var svg2 = d3.select("body").append("svg").attr("width", width).attr("height", height);
-      svg2.on("mousemove", function() {
+      //var svg2 = d3.select("body").append("svg").attr("width", width).attr("height", height);
+      svg.on("mousemove", function() {
           console.log('hi');
 	  var p = d3.mouse(this);
 	  projection.rotate([λ(p[0]), φ(p[1])]);
