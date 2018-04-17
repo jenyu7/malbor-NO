@@ -34,4 +34,7 @@ Added base code to build off of, moved js to js file and style to css file
 naotakaK -- 2018-04-16 13:15
 Used different base code for hover, probs with css and rotate
 -----------------------
+naotakaK -- 2018-04-17 13:15
+Used smoking data to color globe
+-----------------------
 =======================================================

@@ -1,9 +1,9 @@
 var svg = "null";
 var lat = 480;
 var lon = 480;
-d3.csv("population.csv", function(err, data) {
+d3.csv("smoker.csv", function(err, data) {
 
-  var config = {"data0":"Country (or dependent territory)","data1":"Population",
+  var config = {"data0":"Country","data1":"Youth indicator 1 rate B",
               "label0":"label 0","label1":"label 1","color0":"#99ccff","color1":"#0050A1",
               "width":960,"height":960}
 
