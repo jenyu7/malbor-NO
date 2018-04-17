@@ -1,4 +1,6 @@
 var svg = "null";
+var lat = 0;
+var lon = 0;
 d3.csv("population.csv", function(err, data) {
 
   var config = {"data0":"Country (or dependent territory)","data1":"Population",
@@ -202,11 +204,23 @@ d3.csv("population.csv", function(err, data) {
       var φ = d3.scale.linear().domain([0, height]).range([90, -90]);
 
       //var svg2 = d3.select("body").append("svg").attr("width", width).attr("height", height);
-      svg.on("mousemove", function() {
-          console.log('hi');
-	  var p = d3.mouse(this);
+      var thingToMove = document.getElementsByTagName('svg')[0];
+      document.onkeydown = function(event) {
+          if (event.keyCode == 37) {
+              lat += 20;
+          }
+          if (event.keyCode == 38) {
+              lon += 20;
+          }
+          if (event.keyCode == 39) {
+              lat -= 20;
+          }
+          if (event.keyCode == 40) {
+              lon -= 20;
+          }	  var p = [lat, lon];
+      console.log(p);
 	  projection.rotate([λ(p[0]), φ(p[1])]);
-	  svg.selectAll("path").attr("d", path2); });
+	  svg.selectAll("path").attr("d", path2); };
 
   });
 
