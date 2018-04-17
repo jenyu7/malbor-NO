@@ -1,6 +1,6 @@
 var svg = "null";
-var lat = 0;
-var lon = 0;
+var lat = 480;
+var lon = 480;
 d3.csv("population.csv", function(err, data) {
 
   var config = {"data0":"Country (or dependent territory)","data1":"Population",
