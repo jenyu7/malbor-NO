@@ -92,8 +92,9 @@ d3.csv("smoker.csv", function(err, data) {
 
   svg.append("path")
       .datum(graticule)
-      .attr("class", "graticule")
-      .attr("d", path);
+	.attr("class", "graticule")
+	.attr("d", path)
+    
 
   var valueHash = {};
 
@@ -180,7 +181,8 @@ d3.csv("smoker.csv", function(err, data) {
         .on("mouseout", function() {
                 $(this).attr("fill-opacity", "1.0");
                 $("#tooltip-container").hide();
-            });
+        });
+	  .on("click", clicked);
 
     g.append("path")
         .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
@@ -219,3 +221,29 @@ d3.csv("smoker.csv", function(err, data) {
 
   //d3.select(self.frameElement).style("height", (height * 2.3 / 3) + "px");
 });
+
+
+function clicked(d) {
+  var x, y, k;
+    console.log("clicked");
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 4;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("path")
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", 1.5 / k + "px");
+}
