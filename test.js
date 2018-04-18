@@ -4,7 +4,7 @@ var lon = 480;
 d3.csv("smoker.csv", function(err, data) {
 
   var config = {"data0":"Country","data1":"Youth indicator 1 rate B",
-		"label0":"label 0","label1":"label 1","color0":"#99ccff","color1":"#0050A1",
+		"label0":"label 0","label1":"label 1","color0":"#ff7777","color1":"#ff0000",
 		"width":960,"height":960};
 
   var width = config.width,
@@ -38,27 +38,20 @@ d3.csv("smoker.csv", function(err, data) {
       };
   }
 
-  function hexToRgb(hex) {
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
-      } : null;
-  }
-
-  function valueFormat(d) {
-    if (d > 1000000000) {
-      return Math.round(d / 1000000000 * 10) / 10 + "B";
-    } else if (d > 1000000) {
-      return Math.round(d / 1000000 * 10) / 10 + "M";
-    } else if (d > 1000) {
-      return Math.round(d / 1000 * 10) / 10 + "K";
-    } else {
-      return d + "%";
+    function hexToRgb(hex) {
+	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+	} : null;
     }
-  }
-
+    
+    function valueFormat(d) {
+	//console.log(d);
+	return d + "%";
+    }
+    
   var COLOR_FIRST = config.color0, COLOR_LAST = config.color1;
 
   var rgb = hexToRgb(COLOR_FIRST);
@@ -85,7 +78,7 @@ d3.csv("smoker.csv", function(err, data) {
 
   var projection = d3.geo.orthographic()
       .scale(250)
-      .translate([width / 2, height / 2])
+      .translate([width / 2, height / 3])
       .clipAngle(90);
 
   var path = d3.geo.path()
@@ -224,5 +217,5 @@ d3.csv("smoker.csv", function(err, data) {
 
   });
 
-  d3.select(self.frameElement).style("height", (height * 2.3 / 3) + "px");
+  //d3.select(self.frameElement).style("height", (height * 2.3 / 3) + "px");
 });
