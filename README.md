@@ -41,3 +41,16 @@ Upon loading, the chart will utilize animation to grow the bubbles superimposed 
 
 **General Visual of Final Product**:  
 <img src="https://i.gyazo.com/de545729e3f3c321084432c6287d2ff5.png" alt="Drawing" style="width: 50px;"/>
+
+## Launch Instructions
+
+The only dependency to run this visualization is Flask. You can install it in your virtual environment by running the following commands: 
+
+`$ . /path_to/venv/bin/activate`  
+`(venv) $ pip install flask`
+
+After you get flask, the project can be run using the following code: 
+
+`(venv) $ python app.py`
+
+Now, navigate in your browser to `localhost:5000/` to see the visualization.
