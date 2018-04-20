@@ -227,19 +227,19 @@ d3.csv("/static/smoker.csv", function(err, data) {
     //deadfix=(lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 20 : 0;
 	document.onkeydown = function(event) {
             if (event.keyCode == 37) {
-		lat += 20 + deadfix;
+		lat += 20;
         lat +=(lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 20 : 0;
             }
             if (event.keyCode == 38) {
-		lon += 20 + deadfix;
+		lon += 20;
         lon += (lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 20 : 0;
             }
             if (event.keyCode == 39) {
-		lat -= 20 + deadfix;
+		lat -= 20;
         lat -= (lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 20 : 0;
             }
             if (event.keyCode == 40) {
-		lon -= 20 + deadfix;
+		lon -= 20;
         lon -= (lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 20 : 0;
             }	  var p = [lat, lon];
 	    console.log(p);
