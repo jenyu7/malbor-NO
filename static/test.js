@@ -47,12 +47,12 @@ d3.csv("/static/smoker.csv", function(err, data) {
             b: parseInt(result[3], 16)
 	} : null;
     }
-    
+
     function valueFormat(d) {
 	//console.log(d);
 	return d + "%";
     }
-    
+
     var COLOR_FIRST = config.color0, COLOR_LAST = config.color1;
 
     var rgb = hexToRgb(COLOR_FIRST);
@@ -95,7 +95,7 @@ d3.csv("/static/smoker.csv", function(err, data) {
 	.datum(graticule)
 	.attr("class", "graticule")
 	.attr("d", path);
-    
+
 
     var valueHash = {};
 
@@ -224,18 +224,19 @@ d3.csv("/static/smoker.csv", function(err, data) {
 
 	//var svg2 = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var thingToMove = document.getElementsByTagName('svg')[0];
+    deadfix=(lat == 680 && lon == 460) || (lat == 960 && lon == 500) ? 0 : 20;
 	document.onkeydown = function(event) {
             if (event.keyCode == 37) {
-		lat += 20;
+		lat += 20 + deadfix;
             }
             if (event.keyCode == 38) {
-		lon += 20;
+		lon += 20 + deadfix;
             }
             if (event.keyCode == 39) {
-		lat -= 20;
+		lat -= 20 + deadfix;
             }
             if (event.keyCode == 40) {
-		lon -= 20;
+		lon -= 20 + deadfix;
             }	  var p = [lat, lon];
 	    console.log(p);
 	    projection.rotate([λ(p[0]), φ(p[1])]);
