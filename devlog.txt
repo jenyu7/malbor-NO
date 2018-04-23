@@ -57,4 +57,9 @@ Does not display information for countries with no data
 -----------------------
 yuJ -- 2018-04-22 22:27
 Styling (padding, etc) and adding headers/small stuff
+-----------------------
+naotakaK -- 2018-04-23 01:20
+Rotate on click is buggy, so commented out
+Countries change color on click
+Changed color of bar graph
 =======================================================
