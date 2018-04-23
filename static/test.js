@@ -219,6 +219,22 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		g.selectAll("path")
 		    .classed("active", centered && function(d) { return d === centered; });
 		console.log("x: " + x + " y: " + y + " k: " + k);
+		d3.selectAll(".country")
+		    .classed("country", false)
+		    .style("fill", function(d) {
+			if (valueHash[d.properties.name]) {
+			    var c = quantize((valueHash[d.properties.name]));
+			    var color = colors[c].getColors();
+			    return "rgb(" + color.r + "," + color.g +
+				"," + color.b + ")";
+			} else {
+			    return "#ccc";
+			}
+		    });
+		d3.select(this)
+		    .classed("country", true)
+		    .style("fill", "rgb(97, 97, 247)");
+		/***
 		g.transition()
 		    .duration(1250)
 		    .tween("rotate", function() {
@@ -236,6 +252,7 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		    });
 		    //.attr("scale(" + k  + ")");
 		    //.style("stroke-width", 1.5 / k + "px");
+		 ***/		
 		displayInfo(str);
 	    });
 
@@ -307,6 +324,7 @@ function displayInfo(country) {
 	p[4].innerHTML = "<b>Percentage of Smokers<br> Based On Sex</b>"
 	g = d["Youth indicator 1 rate F"];
 	b = d["Youth indicator 1 rate M"];
+	
 	var data = [["Female", g], ["Male", b]];
 	console.log(data);
 	console.log(chart);
@@ -318,13 +336,13 @@ function displayInfo(country) {
 	    count ++;
 	}
 	barEnter.text(function(d){return d[0] + " " + d[1] + "%";});
-	barEnter.style("background-color", "steelblue");
-	barEnter.transition().duration(3000).style("width", function(d) {
+	barEnter.style("background-color", "red");
+	barEnter.transition().duration(600).style("width", function(d) {
 	    if (d[1] * 10 > 200){return d[1] * 5 + "px";}
 	    return d[1] * 5 + "px"; });
     }
     else{
-	p[1].innerHTML = "";
+	p[1].innerHTML = "No data available";
 	p[2].innerHTML = "";
 	p[3].innerHTML = "";
 	p[4].innerHTML = "";
