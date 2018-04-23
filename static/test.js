@@ -5,8 +5,8 @@ d3.csv("/static/smoker.csv", function(err, data) {
 
     var config = {"data0":"Country","data1":"Youth indicator 1 rate B",
 		  "label0":"label 0","label1":"label 1","color0":"#ff7777","color1":"#ff0000",
-		  "width":960,"height":960};
-
+		  "width":800,"height":800};
+    console.log(config);
     var width = config.width,
 	height = config.height,
 	centered;
@@ -198,7 +198,14 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		    k = 1;
 		    centered = null;
 		}
-
+		var index = this.outerHTML.indexOf("title");
+		console.log(index);
+		str = this.outerHTML.substring(index);
+		var i1 = str.indexOf('"');
+		str = str.substring(i1+1);
+		var i2 = str.indexOf('"');
+		console.log(str.substring(0,i2));
+		str = str.substring(0,i2);
 		g.selectAll("path")
 		    .classed("active", centered && function(d) { return d === centered; });
 
@@ -206,6 +213,7 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		    .duration(750)
 		    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
 		    .style("stroke-width", 1.5 / k + "px");
+		displayInfo(str);
 	    });
 
 	g.append("path")
@@ -252,7 +260,56 @@ d3.csv("/static/smoker.csv", function(err, data) {
     //d3.select(self.frameElement).style("height", (height * 2.3 / 3) + "px");
 });
 
+dict = {};
+d3.csv("/static/smoker.csv", function(data){
+    data.forEach(function(d){
+	dict[d.Country] = d;
+    });
+    console.log(dict);
+});
+var chart = d3.selectAll(".mini-svg");
+var count = 0;
 
-function clicked(d) {
 
+function displayInfo(country) {
+    var displayBox = document.getElementById("mini");
+    var p = document.getElementsByTagName("p");
+    p[0].innerHTML = "Country: " + country;
+    d = dict[country];
+    console.log(d);
+    if (d != undefined){
+	p[1].innerHTML = "Survey name: " + d["Name of survey of youth"];
+	p[2].innerHTML = "Representation: " + d["Representativeness of youth survey"];
+	p[3].innerHTML = "Age Range: " + d["Youth survey age range"];
+	p[4].innerHTML = "<b>Percentage of Smokers<br> Based On Sex</b>"
+	g = d["Youth indicator 1 rate F"];
+	b = d["Youth indicator 1 rate M"];
+	var data = [["Female", g], ["Male", b]];
+	console.log(data);
+	console.log(chart);
+	var bar = chart.selectAll("div");
+	console.log(bar);
+	var barUpdate = bar.data(data);
+	if (count == 0){
+	    barEnter = barUpdate.enter().append("div");
+	    count ++;
+	}
+	barEnter.text(function(d){return d[0] + " " + d[1] + "%";});
+	barEnter.style("background-color", "steelblue");
+	barEnter.transition().duration(3000).style("width", function(d) {
+	    if (d[1] * 10 > 200){return d[1] * 5 + "px";}
+	    return d[1] * 10 + "px"; });
+    }
+    else{
+	p[1].innerHTML = "";
+	p[2].innerHTML = "";
+	p[3].innerHTML = "";
+	p[4].innerHTML = "";
+	var bar = chart.selectAll("div");
+	console.log(bar);
+	var data = [];
+	var barUpdate = bar.data(data);
+	barEnter.text("");
+	barEnter.transition().style("background-color", "black");
+    }
 }
