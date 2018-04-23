@@ -44,4 +44,17 @@ started flask app but not working fully
 naotakaK -- 2018-04-18 18:52
 Finished flask app, cleaned up garbage files. files are now located in templates/ and static/
 -----------------------
+yuJ -- 2018-04-19 01:10
+Working on zooming in functionality of map
+-----------------------
+yuJ -- 2018-04-22 16:25
+Fixed arranging of elements on webpage
+-----------------------
+yuJ -- 2018-04-22 22:16
+Finished creating pop out box with additional information
+Small bar graph displaying sex ratio of smokers
+Does not display information for countries with no data
+-----------------------
+yuJ -- 2018-04-22 22:27
+Styling (padding, etc) and adding headers/small stuff
 =======================================================

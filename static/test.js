@@ -1,3 +1,11 @@
+/*
+ * marlbor-NO
+ * Naotaka Kinoshita, Shaina Peters, Jen Yu
+ * 2018-04-22
+ * P #01: Viz
+ * SoftDev pd7
+ */
+
 var svg = "null";
 var lat = 480;
 var lon = 480;
@@ -298,7 +306,7 @@ function displayInfo(country) {
 	barEnter.style("background-color", "steelblue");
 	barEnter.transition().duration(3000).style("width", function(d) {
 	    if (d[1] * 10 > 200){return d[1] * 5 + "px";}
-	    return d[1] * 10 + "px"; });
+	    return d[1] * 5 + "px"; });
     }
     else{
 	p[1].innerHTML = "";
