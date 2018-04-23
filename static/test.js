@@ -195,7 +195,9 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		var x, y, k;
 		console.log("clicked");
 		if (d && centered !== d) {
+		    console.log("cent");
 		    var centroid = path.centroid(d);
+		    console.log(centroid);
 		    x = centroid[0];
 		    y = centroid[1];
 		    k = 4;
@@ -216,11 +218,24 @@ d3.csv("/static/smoker.csv", function(err, data) {
 		str = str.substring(0,i2);
 		g.selectAll("path")
 		    .classed("active", centered && function(d) { return d === centered; });
-
+		console.log("x: " + x + " y: " + y + " k: " + k);
 		g.transition()
-		    .duration(750)
-		    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-		    .style("stroke-width", 1.5 / k + "px");
+		    .duration(1250)
+		    .tween("rotate", function() {
+			//var p = d3.geo.centroid(country.id);
+			//var p = path.centroid(d); //introduces weird rotate
+			//console.log("p:  " + p);
+			var r = d3.interpolate(projection.rotate(), [x, y]);
+			lat = x;
+			lon = y;
+			return function(t) {
+			    projection.rotate(r(t));
+			    //projection.rotate(p);
+			    svg.selectAll("path").attr("d", path);
+			};
+		    });
+		    //.attr("scale(" + k  + ")");
+		    //.style("stroke-width", 1.5 / k + "px");
 		displayInfo(str);
 	    });
 
